@@ -1,11 +1,11 @@
 
 import './App.css';
-import PersonForm from './Components/PersonForm';
+import ProductForm from './Components/ProductForm';
 
 function App() {
   return (
     <div className="App">
-      <PersonForm/>
+      <ProductForm/>
     </div>
   );
 }
