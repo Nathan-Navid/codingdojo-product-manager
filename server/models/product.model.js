@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PersonSchema = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
     // title:{
     //     type:String,
     //     required:[true, "Title is require"],
@@ -18,11 +18,17 @@ const PersonSchema = new mongoose.Schema({
     //     required:[true, "Release Year is require"],
     //     min:[1900,"Release Year must be at least 1900"],
     // }, 
-    firstName:{type:String},
-    lastName:{type:String}
+    title: {
+        type: String
+    },
+    price: {
+        type: Number
+    },
+    description: {
+        type: String
+    }
 
-}, 
-{timestamps:true});
+},
+    { timestamps: true });
 
-module.exports = mongoose.model('Person', PersonSchema);
-// 
+module.exports = mongoose.model('Product', ProductSchema);

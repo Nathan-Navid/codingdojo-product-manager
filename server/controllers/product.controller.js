@@ -1,4 +1,4 @@
-const Person = require ("../models/person.model")
+const ProductModel = require("../models/product.model")
 
 // module.exports ={
 //     // CREATE
@@ -43,18 +43,34 @@ const Person = require ("../models/person.model")
 //         message: "Hello World Navid is the best"
 // });
 // }
-module.exports.index = (req, res) => {
-    req.json({
-        message: "Hello World"
-    });
+
+module.exports = {
+    //creat product
+    createProduct: (req, res) => {
+        ProductModel.create(req.body)
+            .then(newProduct => res.status(201).json(newProduct))
+            .catch(err => res.status(400).json(err))
+    },
+
+    //display product
+    getOneProduct: (req, res) => {
+        ProductModel.findById(req.params.id)
+            .then(oneProduct => res.json(oneProduct))
+            .catch(err => res.json(err))
+    },
+
+    //list of all products
+    getAllProducts: (req, res) => {
+        ProductModel.find()
+            .then(allProducts => res.json(allProducts))
+            .catch(err => res.json(err));
+    }
+
+
+
 }
 
-module.exports.creatPerson = (req,res)=>{
-    Person.create(req.body)
-    .then(newPerson => res.status(201).json(newPerson))
-    .catch(err => res.status(400).json(err));
-}
- /* The method below is new */
+/* The method below is new */
 //  module.exports.createPerson = (request, response) => {
 //     // Mongoose's "create" method is run using our Person model to add a new person to our db's person collection.
 //     // request.body will contain something like {firstName: "Billy", lastName: "Washington"} from the client

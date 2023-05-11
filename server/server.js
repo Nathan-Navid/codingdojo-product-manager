@@ -7,7 +7,7 @@ const port = 8000;
 
 
 
-require('./routes/person.routes')(app);
+require('./routes/product.routes')(app);
 
 require('./config/mongoose.config');
 

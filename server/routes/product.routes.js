@@ -1,4 +1,4 @@
-const PersonController = require('../controllers/person.controller')
+const ProductController = require('../controllers/product.controller')
 
 // module.exports = app =>{
 //     app.get('/api/shows', ShowController.getAllShows);
@@ -11,7 +11,8 @@ const PersonController = require('../controllers/person.controller')
 //     app.patch('/api/shows/:id', ShowController.updateShow);
 //     app.delete('/api/shows/:id', ShowController.deleteShow);
 // }
-module.exports = (app) => {
-    app.get('/api', PersonController.index);
-    app.post('/api/person', PersonController.creatPerson)
+module.exports = app => {
+    app.get('/api/products', ProductController.getAllProducts)
+    app.get('/api/product/:id', ProductController.getOneProduct)
+    app.post('/api/product', ProductController.createProduct)
 }
