@@ -27,23 +27,31 @@ const ProductForm = () => {
 
   }
   return (
-    <div>
-      <h1>Product Manager</h1>
-      <form onSubmit={submitHandler} action="">
-        <div>
-          <label>Title</label>
-          <input type="text" name='title' onChange={(e) => setTitle(e.target.value)} className='form-group mt-2' placeholder='Title' />
+    <div className='container text-center'>
+    <div className='row justify-content-md-center p-md-3'>
+      <h1 className='mb-3'>Product Manager</h1>
+      <form onSubmit={submitHandler} action="" className='col-sm-6'>
+        <div class="row mb-3">
+          <label className='col-sm-2 col-form-label'>Title: </label>
+          <div className='col-sm-10'>
+            <input type="text" name='title' onChange={(e) => setTitle(e.target.value)} className='form-control' placeholder='Title' />
+          </div>
         </div>
-        <div>
-          <label>Price</label>
-          <input type="number" name='price' onChange={(e) => setPrice(e.target.value)} className='form-group mt-2' placeholder='Price' />
+        <div class="row mb-3">
+          <label className='col-sm-2 col-form-label'>Price: </label>
+          <div className='col-sm-10'>
+            <input type="text" name='price' onChange={(e) => setPrice(e.target.value)} className='form-control' placeholder='Price' />
+          </div>
         </div>
-        <div>
-          <label>Description</label>
-          <input type="text" name='description' onChange={(e) => setDescription(e.target.value)} className='form-group' placeholder='Description' />
+        <div class="row mb-3">
+          <label className='col-sm-2 col-form-label'>Description: </label>
+          <div className='col-sm-10'>
+            <input type="text" name='description' onChange={(e) => setDescription(e.target.value)} className='form-control' placeholder='Description' />
+          </div>
         </div>
-        <input className='btn btn-primary text-light mt-2' type="submit" value="Creat" />
+        <button type="submit" class="btn btn-primary">Sign in</button>
       </form>
+    </div>
     </div>
   )
 }
