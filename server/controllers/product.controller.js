@@ -64,9 +64,18 @@ module.exports = {
         ProductModel.find()
             .then(allProducts => res.json(allProducts))
             .catch(err => res.json(err));
+    },
+    updateProduct: (req, res) => {
+        ProductModel.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+            .then(updatedProduct => res.json(updatedProduct))
+            .catch(err => res.json(err));
+
+    },
+    deleteProduct: (req, res) => {
+        ProductModel.findByIdAndDelete(req.params.id)
+            .then(deletedProduct => res.json(deletedProduct))
+            .catch(err => res.json(err));
     }
-
-
 
 }
 

@@ -4,6 +4,7 @@ import ProductForm from './Components/ProductForm';
 import Home from './Components/Home';
 import Navigate from './Components/Navigate';
 import ProductDetails from './Components/ProductDetails';
+import ProductUpdate from './Components/ProductUpdate';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/:id' element={<ProductDetails/>} />
           <Route path='/new' element={<ProductForm />} />
-          <Route path='/edit/:id' element={<ProductForm/>} />
+          <Route path='/edit/:id' element={<ProductUpdate/>} />
         </Routes>
       </BrowserRouter>
 
