@@ -12,22 +12,14 @@ const ProductUpdate = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    if (id) {
-      axios.get(`http://localhost:8000/api/product/${id}`)
-        .then(res => {
-          console.log(res.data)
-          setTitle(res.data.title)
-          setPrice(res.data.price)
-          setDescription(res.data.description)
-        })
-        .catch((err) => console.log(err))
-
-      return () => {
-        setTitle("")
-        setPrice("")
-        setDescription("")
-      }
-    }
+    axios.get(`http://localhost:8000/api/product/${id}`)
+      .then(res => {
+        console.log(res.data)
+        setTitle(res.data.title)
+        setPrice(res.data.price)
+        setDescription(res.data.description)
+      })
+      .catch((err) => console.log(err))
   }, [id]);
 
 

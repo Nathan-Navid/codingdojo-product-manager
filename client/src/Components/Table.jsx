@@ -1,7 +1,8 @@
+import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Table = ({ products }) => {
+const Table = ({ products, deletProrduct }) => {
     return (
         <table className="table table-striped">
             <thead>
@@ -25,7 +26,7 @@ const Table = ({ products }) => {
                             <td>
                                 <Link to={`/${product._id}`} className="me-3"><i className="bi bi-binoculars"></i></Link>
                                 <Link to={`/edit/${product._id}`} className="me-3"><i className="bi bi-pencil"></i></Link>
-                                <Link to={"/delete"}><i className="bi bi-trash-fill"></i></Link>
+                                <Link onClick={() => deletProrduct(product._id)}><i className="bi bi-trash-fill"></i></Link>
                             </td>
                         </tr>)
                     }
