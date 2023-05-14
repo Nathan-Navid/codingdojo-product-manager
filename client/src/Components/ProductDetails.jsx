@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import axios from 'axios';
 // /:id 
 // get id from params
@@ -22,6 +22,7 @@ const ProductDetails = () => {
       <h3>Title: {product.title}</h3>
       <h3>Price: {product.price}</h3>
       <h3>Description: {product.description}</h3>
+      <Link to={"/"} className="btn btn-success">Back to Product List</Link>
     </div>
   )
 }
