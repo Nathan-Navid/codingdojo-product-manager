@@ -25,7 +25,8 @@ const ProductSchema = new mongoose.Schema({
         maxlength:[255,"Title must be at most 255 characters long"]
     },
     price: {
-        type: Double,
+        type: Number,
+        required:[true, "Price is require"],
     },
     description: {
         type: String,

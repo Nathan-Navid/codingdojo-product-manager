@@ -4,13 +4,13 @@ import Table from './Table';
 
 const ProductList = () => {
     const [products, setProducts] = useState([]) 
-    const [id, setProductId] = useState() 
+    // const [id, setProductId] = useState() 
     
     useEffect(() =>{
         axios.get("http://localhost:8000/api/products")
         .then(res =>setProducts(res.data))
         .catch((err) => console.log(err))
-    }, [id]);
+    }, []);
 
     //Delete Product code to 2 ways:
 
@@ -19,7 +19,8 @@ const ProductList = () => {
         axios.delete(`http://localhost:8000/api/product/${id}`)
             .then(res => {
                 console.log(res)
-                setProductId(id);
+                // setProductId(id);
+                setProducts(products.filter(product=> product._id !== id));
             })
             .catch((err) => console.log(err))
     }
