@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 const ProductForm = () => {
   const [title, setTitle] = useState("")
-  const [price, setPrice] = useState()
+  const [price, setPrice] = useState("")
   const [description, setDescription] = useState("")
   const navigate = useNavigate();
   
@@ -16,7 +16,7 @@ const ProductForm = () => {
     axios.post('http://localhost:8000/api/product', {
       title,
       price,
-      description
+      description 
     })
       .then(res => {
         console.log(res);
@@ -34,18 +34,21 @@ const ProductForm = () => {
         <div className="row mb-3">
           <label className='col-sm-2 col-form-label'>Title: </label>
           <div className='col-sm-10'>
+          {title && title.length < 2 ? <p className='text-danger'>*** Title must be at least 2 charactors ***</p> : ""}
             <input type="text" name='title' onChange={(e) => setTitle(e.target.value)} className='form-control' placeholder='Title' />
           </div>
         </div>
         <div className="row mb-3">
           <label className='col-sm-2 col-form-label'>Price: </label>
           <div className='col-sm-10'>
+          
             <input type="number" name='price' onChange={(e) => setPrice(e.target.value)} className='form-control' placeholder='Price' />
           </div>
         </div>
         <div className="row mb-3">
           <label className='col-sm-2 col-form-label'>Description: </label>
           <div className='col-sm-10'>
+          {description && description.length < 5 ? <p className='text-danger'>*** Description must be at least 5 charactors ***</p> : ""}
             <input type="text" name='description' onChange={(e) => setDescription(e.target.value)} className='form-control' placeholder='Description' />
           </div>
         </div>

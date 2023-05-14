@@ -12,7 +12,9 @@ const ProductList = () => {
         .catch((err) => console.log(err))
     }, [id]);
 
-    const deletProrduct = (id) => {        
+    //Delete Product code to 2 ways:
+
+    const deletProrduct = id => {        
         console.log(id)
         axios.delete(`http://localhost:8000/api/product/${id}`)
             .then(res => {
@@ -21,6 +23,15 @@ const ProductList = () => {
             })
             .catch((err) => console.log(err))
     }
+    // const deletProrduct = id => {
+    //     axios.delete("http://localhost:8000/api/product/" + id)
+    //     .then((res)=>{
+    //         console.log(res);
+    //         console.log(res.data);
+    //         setProductId(products.filter(product=> product._id !== id));
+    //     })
+    //     .catch((err)=>console.log(err))
+    // }
 return (
     <div className='container'>
         <div className='title'>
